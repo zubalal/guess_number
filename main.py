@@ -3,8 +3,6 @@ import funcions
 import time
 
 def multiplayer():
-
-    funcions.greeting(player_input)
    
     players = funcions.add_player(player_input)
         

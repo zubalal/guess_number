@@ -3,29 +3,20 @@ import funcions
 import time
 
 def multiplayer():
-    players = funcions.add_player(count_players)
-        
-    turns = 0
-
-    name_and_turns = dict.fromkeys(players, turns)
-    
-    for name in range(len(players)):
+    players = funcions.add_player(count_players, 0 )
+    for name in players:
         #Для каждого игрока будут разные случайные числа
+        print(f'Ход игрока {name}')
         random_number = random.randint(1, 100)
         user_guess = 0
-        turns = 0
-        print(f'Сейчас ходит {players[name]}')
-        while  user_guess != random_number:   
-            print(f'Количество совершенных ходов: {turns}.')
+        while user_guess != random_number:
+            players[name] += 1
+            print(f'Количество совершенных ходов: {players[name]}.')
             user_guess = int(input('Введите ваше число: '))
-            
-            # функцией checking_guess проверяем ввод и загаданное число.
-            turns = funcions.checking_guess_multiplayer(user_guess, random_number, turns)
-            
-            name_and_turns[players[name]] = turns
-            
+            funcions.checking_guess_multiplayer(user_guess, random_number)
+  
     #Превращаем словарь в список и сортируем по кол-ву попыток.
-    pairs = list(name_and_turns.items())
+    pairs = list(players.items())
     pairs.sort(key=lambda pairs: pairs[1])
     print(f'Побеждает {pairs[0][0]}. Количество ходов {pairs[0][1]}')
 

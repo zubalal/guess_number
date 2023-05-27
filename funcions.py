@@ -14,11 +14,10 @@ def set_number_of_players(text: str) -> int:
         return set_number_of_players("Количетсво игроков должно быть натуральным числом:")
 
 
-def add_player(players :int, turn=0 ):
+def add_player(players :int):
     """Функция добавляет игроков. Возвращает cписок имен."""
     array_names = [input(f'Давайте знакомиться. Как зовут игрока №{i}: ') for i in range(1, players + 1)]
-    players = dict.fromkeys(array_names, turn)
-
+    players = dict.fromkeys(array_names, 0)
     return players
     
     
@@ -51,7 +50,7 @@ def greeting(number_of_players: int):
         print('У вас будет два уровня сложности: легкий и тяжелый.\nВ легком у вас будет 10 попыток, в тяжелом - 5.')
 
 def multiplayer():
-    players = funcions.add_player(count_players, 0 )
+    players = funcions.add_player(count_players)
     for name in players:
         #Для каждого игрока будут разные случайные числа
         print(f'Ход игрока {name}')

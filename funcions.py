@@ -22,7 +22,7 @@ def add_player(players :int, turn=0 ):
     
     
     
-def checking_guess_multiplayer(guess, answer):
+def checking_guess(guess, answer):
     """Сравнение пользовательского ввода с загаданным числом. Возвращает кол-во совершенных попыток"""
     if guess < answer:
         print('Загаданное число больше')
@@ -40,19 +40,6 @@ def choose_difficulty():
     elif level == 'легкий':
         print(f'Вы выбрали уровень сложности: {level.title()}.')
         return EASY_LEVEL_ATTEMPTS
-    
-    
-def checking_guess_singleplayer(guess, answer, turn):
-    """Сравнение пользовательского ввода с загаданным числом. Возвращается оставшееся кол-во попыток."""
-    if guess < answer:
-        print('Загаданное число больше')
-        return turn - 1
-    elif guess > answer:
-        print('Загаданное число меньше')
-        return turn - 1
-    else:
-        print(f'Поздравляю, вы отгадали! Было загадано число {answer}.')    
-    
     
 def greeting(number_of_players):
     """Приветствие в зависимости от количества игроков"""

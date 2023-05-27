@@ -46,20 +46,13 @@ def greeting(number_of_players):
     """Приветствие в зависимости от количества игроков"""
     if number_of_players == 1:
         print('Добро пожаловать в игру «Угадай число».')
-        time.sleep(1.5)
         print('Я загадал число от 1 до 100.')
-        time.sleep(1.5)
         print('Вам предстоит его отгадать.')
-        time.sleep(1.5)
         print('У вас будет два уровня сложности: легкий и тяжелый.\nВ легком у вас будет 10 попыток, в тяжелом - 5.')
-        time.sleep(1.5)
     elif number_of_players > 1:
         print('Добро пожаловать в игру «Угадай число».')
-        time.sleep(1.5)
         print('Я загадал число от 1 до 100.')
-        time.sleep(1.5)
         print('Вам предстоит его отгадать.')
-        time.sleep(1.5)
 
 def multiplayer():
     players = funcions.add_player(count_players, 0 )

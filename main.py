@@ -3,13 +3,13 @@ import funcions
 import time
 
 def multiplayer():
-    
+
     funcions.greeting(player_input)
-       
+   
     players = funcions.add_player(player_input)
-            
+        
     turns = 0
-    
+
     name_and_turns = dict.fromkeys(players, turns)
     
     for name in range(len(players)):
@@ -39,8 +39,6 @@ def single_player():
 
     random_number = random.randint(1, 100)
     
-    funcions.greeting(player_input)
-    
     turns = funcions.choose_difficulty()
     user_guess = 0
     
@@ -61,6 +59,7 @@ def single_player():
 
 while input('Поиграем?\n').lower() == 'да' or 'lf':
     player_input = int(input('Сколько игроков будет играть?:\n'))
+    funcions.greeting(player_input)
     if player_input == 1:
         single_player()
     elif player_input > 1:

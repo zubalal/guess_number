@@ -3,6 +3,16 @@ import time
 HARD_LEVEL_ATTEMPTS = 5
 EASY_LEVEL_ATTEMPTS = 1
 
+
+def set_number_of_players(text: str) -> int:
+    print(text)
+    try:
+        number = int(input())
+        return number
+    except ValueError:
+        return set_number_of_players("Количетсво игроков должно быть натуральным числом:")
+
+
 def  add_player(players):
     """Функция добавляет игроков. Возвращает cписок имен."""
     if players > 1:

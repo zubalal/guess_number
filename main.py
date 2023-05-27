@@ -3,7 +3,7 @@ import funcions
 import time
 
 def multiplayer():
-    players = funcions.add_player(player_input)
+    players = funcions.add_player(count_players)
         
     turns = 0
 
@@ -56,7 +56,7 @@ def single_player():
 
 while input('Поиграем?\n').lower() == 'да' or 'lf':
     count_players = funcions.set_number_of_players('Сколько игроков будет играть?:')
-    funcions.greeting(player_input)
+    funcions.greeting(count_players)
     if count_players == 1:
         single_player()
     elif count_players > 1:

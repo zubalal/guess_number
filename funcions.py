@@ -13,14 +13,12 @@ def set_number_of_players(text: str) -> int:
         return set_number_of_players("Количетсво игроков должно быть натуральным числом:")
 
 
-def  add_player(players):
+def add_player(players :int, turn=0 ):
     """Функция добавляет игроков. Возвращает cписок имен."""
-    if players > 1:
-        name_player = [input(f'Давайте знакомиться. Как зовут игрока №{i}: ') for i in range(1, players + 1)]
-        return name_player
-    else:
-        name_player = [input('Давайте знакомиться. Как вас зовут?: ') for i in range(1, players + 1)]
-        return name_player
+    array_names = [input(f'Давайте знакомиться. Как зовут игрока №{i}: ') for i in range(1, players + 1)]
+    players = dict.fromkeys(array_names, turn)
+
+    return players
     
     
     

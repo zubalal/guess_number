@@ -24,22 +24,17 @@ def multiplayer():
 
 
 def single_player():
-
     random_number = random.randint(1, 100)
-    
     turns = funcions.choose_difficulty()
     user_guess = 0
-    
     while  user_guess != random_number:
         print(f'У вас осталось {turns} попыток')
         user_guess = int(input('Введите ваше число: '))
-        
-        turns = funcions.checking_guess_singleplayer(user_guess, random_number, turns)
-        if turns == 0:
-            print(f'Вы так и не смогли отгадать число {random_number}. Вы проиграли.')
-            return
-        elif user_guess != random_number:
+        funcions.checking_guess(user_guess, random_number) # проверяем ввод
+        turns -=1 #уменьшаем количество доступных попыток
+        while turns: # пока количетсво попыток больше или равно 1 - играем.
             print('Не угадали, давайте еще раз.')
+        print(f'Вы так и не смогли отгадать число {random_number}. Вы проиграли.')
 
 
 

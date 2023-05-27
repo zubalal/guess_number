@@ -33,13 +33,14 @@ def checking_guess(guess: int, answer : int):
 
 def choose_difficulty():
     """функция для определения уровня сложности. Возвращает кол_во попыток"""
-    level = input('Для начала выберем уровень сложности. Сложный/Легкий:\n').lower()
-    if level == 'сложный':
-        print(f'Вы выбрали уровень сложности: {level.title()}.')
-        return HARD_LEVEL_ATTEMPTS
-    elif level == 'легкий':
-        print(f'Вы выбрали уровень сложности: {level.title()}.')
+    print(f'Для начала выберем уровень сложности: \n1.Легкий\n2.Сложный')
+    difficulty = int(input('Выбор:'))
+    if difficulty == 1:
+        print(f'Вы выбрали уровень сложности: Легкий.')
         return EASY_LEVEL_ATTEMPTS
+    elif difficulty == 2:
+        print(f'Вы выбрали уровень сложности: Сложный.')
+        return HARD_LEVEL_ATTEMPTS
     
 def greeting(number_of_players: int):
     """Приветствие в зависимости от количества игроков"""

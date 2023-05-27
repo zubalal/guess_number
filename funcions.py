@@ -23,7 +23,7 @@ def add_player(players :int, turn=0 ):
     
     
     
-def checking_guess(guess, answer):
+def checking_guess(guess: int, answer : int):
     """Сравнение пользовательского ввода с загаданным числом. Возвращает кол-во совершенных попыток"""
     if guess < answer:
         print('Загаданное число больше')
@@ -42,17 +42,13 @@ def choose_difficulty():
         print(f'Вы выбрали уровень сложности: {level.title()}.')
         return EASY_LEVEL_ATTEMPTS
     
-def greeting(number_of_players):
+def greeting(number_of_players: int):
     """Приветствие в зависимости от количества игроков"""
+    print('Добро пожаловать в игру «Угадай число».')
+    print('Я загадал число от 1 до 100.')
+    print('Вам предстоит его отгадать.')
     if number_of_players == 1:
-        print('Добро пожаловать в игру «Угадай число».')
-        print('Я загадал число от 1 до 100.')
-        print('Вам предстоит его отгадать.')
         print('У вас будет два уровня сложности: легкий и тяжелый.\nВ легком у вас будет 10 попыток, в тяжелом - 5.')
-    elif number_of_players > 1:
-        print('Добро пожаловать в игру «Угадай число».')
-        print('Я загадал число от 1 до 100.')
-        print('Вам предстоит его отгадать.')
 
 def multiplayer():
     players = funcions.add_player(count_players, 0 )
@@ -72,9 +68,6 @@ def multiplayer():
     pairs.sort(key=lambda pairs: pairs[1])
     print(f'Побеждает {pairs[0][0]}. Количество ходов {pairs[0][1]}')
 
-
-
-
 def single_player():
     random_number = random.randint(1, 100)
     turns = funcions.choose_difficulty()
@@ -87,9 +80,3 @@ def single_player():
         while turns: # пока количетсво попыток больше или равно 1 - играем.
             print('Не угадали, давайте еще раз.')
         print(f'Вы так и не смогли отгадать число {random_number}. Вы проиграли.')
-   
-    
-    
-    
-    
-    

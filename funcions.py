@@ -77,6 +77,8 @@ def single_player():
         user_guess = int(input('Введите ваше число: '))
         funcions.checking_guess(user_guess, random_number) # проверяем ввод
         turns -=1 #уменьшаем количество доступных попыток
-        while turns: # пока количетсво попыток больше или равно 1 - играем.
+        if turns == 0:
+            print(f'Вы так и не смогли отгадать число {random_number}. Вы проиграли.')
+            return
+        elif user_guess != random_number:
             print('Не угадали, давайте еще раз.')
-        print(f'Вы так и не смогли отгадать число {random_number}. Вы проиграли.')

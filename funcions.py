@@ -70,15 +70,15 @@ def multiplayer(count_players: int):
     else:
         without_brackets = ', '.join(winners_names)
         print(f'Победили игроки: {without_brackets}. На все про все у них ушло попыток: {players[winners_names[0]]}') 
-        
+
 def get_number_turns_of_winner(players :dict):
     return players[min(players, key=players.get)]
 
 def get_winners_list(players :dict): # передаем функции отсортированный список список игроков и количества их попыток
     winners = [] 
-    minimum = min(players, key=players.get)
+    minimum = get_number_turns_of_winner(players)
     for name in players: 
-        if players[name] == players[minimum]: 
+        if players[name] == minimum: 
             winners.append(name) 
     return (winners)     
     

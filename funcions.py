@@ -63,13 +63,10 @@ def multiplayer(count_players: int):
             user_guess = int(input('Введите ваше число: '))
             funcions.checking_guess_multiplayer(user_guess, random_number)
 
-    winners_names = get_winners_list(players)
-    if len(winners_names) == 1:
-        without_brackets = ''.join(winners_names)
-        print(f'Побеждает {without_brackets}. Количество попыток: {players[winners_names[0]]}.')
-    else:
-        without_brackets = ', '.join(winners_names)
-        print(f'Победили игроки: {without_brackets}. На все про все у них ушло попыток: {players[winners_names[0]]}') 
+    print('Наши апплодисменты:')
+    for winner in get_winners_list(players):
+        print(winner)
+    print(f'Количество попыток для победы:{get_number_turns_of_winner(players)}')
 
 def get_number_turns_of_winner(players :dict):
     return players[min(players, key=players.get)]

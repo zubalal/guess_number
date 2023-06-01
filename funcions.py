@@ -63,11 +63,24 @@ def multiplayer(count_players: int):
             user_guess = int(input('Введите ваше число: '))
             funcions.checking_guess_multiplayer(user_guess, random_number)
 
-    #Превращаем словарь в список и сортируем по кол-ву попыток.
-    pairs = list(players.items())
-    pairs.sort(key=lambda pairs: pairs[1])
-    print(f'Побеждает {pairs[0][0]}. Количество ходов {pairs[0][1]}')
+    winners_names = get_winners_list(players)
+    if len(winners_names) == 1:
+        without_brackets = ''.join(winners_names)
+        print(f'Побеждает {without_brackets}. Количество попыток: {players[winners_names[0]]}.')
+    else:
+        without_brackets = ', '.join(winners_names)
+        print(f'Победили игроки: {without_brackets}. На все про все у них ушло попыток: {players[winners_names[0]]}') 
 
+
+def get_winners_list(players :dict): # передаем функции отсортированный список список игроков и количества их попыток
+    winners = [] 
+    minimum = min(players, key=players.get)
+    for name in players: 
+        if players[name] == players[minimum]: 
+            winners.append(name) 
+    return (winners)     
+    
+    
 def single_player():
     random_number = random.randint(1, 100)
     turns = funcions.choose_difficulty()
